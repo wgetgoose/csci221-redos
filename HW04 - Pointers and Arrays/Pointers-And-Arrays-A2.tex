@@ -1,0 +1,113 @@
+\documentclass{exam}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\pagestyle{headandfoot}
+\firstpageheader{CSCI 221}{}{Pointers and Arrays Assignment}
+\runningheader{CSCI 221}{}{Pointers and Arrays Assignment}
+
+
+\begin{document}
+\title{Pointers and Arrays Assignment (Evaluation)}
+\author{CSCI 221: Computer Science Fundamentals 2}
+\date{Spring 2026}
+\maketitle
+
+
+This assignment is designed to test your understanding of pointers and arrays. 
+Feel free to collaborate with others and use resources, but all code and writeups must be your own. 
+To submit your assignment, please submit your code, makefile, and writeup. 
+For full credit, your code should check for invalid input. 
+
+Some questions in this assignment allow you to add additional arguments to your functions. 
+For full credit, you should only do this when necessary. 
+
+\textbf{Due Date:}
+Friday, February 27th at 1:00 pm. 
+
+\begin{questions}
+
+\question[30]
+\textbf{Binary Search Trees.}
+In this question, you will implement a binary search tree data structure. 
+A binary search tree contains nodes that store three items: a data value, a pointer to the left child node, and a pointer to the right child node. 
+Any pointer to a child that does not exist is set to \texttt{NULL}. 
+For this question, we will design a tree that stores strings, but does not allow duplicate values. 
+
+Binary search trees are designed such that all values in the left subtree of a node must be less than the value in the node, and all values in the right subtree of a node must be greater than the value in the node. 
+A subtree of a node is recursively defined as the tree consisting of the node and its subtrees, rooted at the associated child of that node. 
+That is, all nodes that can be reached by following the pointer to the left child of node A are in node A's left subtree. 
+
+In order to create a tree of strings, we must define what less than and greater than mean on strings. 
+For this question our comparison will compare the 0th characters of the strings. 
+If they are different, we say that the relationship between strings is the same as that between those characters. 
+If they are equal, we move to the next character and repeat the process. 
+Because we use the \texttt{NUL} character and do not allow duplicates, we should never have to compare an existing character to a non-existing character. 
+
+For this question, you are not allowed to use functions in the \texttt{<string>} library. 
+
+\begin{parts}
+\part[3]
+Design a struct to store a node in the binary search tree. 
+
+\part[2]
+Design a struct to represent a binary search tree. 
+This struct should contain a pointer to the root node in the tree and the number of elements in the tree. 
+Remember to update the count in other functions as appropriate. 
+
+\part[5]
+Write a function to compare two strings according to the process above. 
+Your function should take as input two strings. 
+It should return an enum representing the relationship between those strings. 
+You are NOT allowed to add additional arguments to your function. 
+
+\part[5]
+Write a function that takes as input a binary search tree and a string and adds a copy of the string to the binary search tree. 
+Make sure to add a deep copy rather than a shallow copy. 
+You should follow the BST property to ensure that you add the new node to the correct place in the tree. 
+This should not change any other part of the tree. 
+The function should have no return value. 
+
+\part[10]
+Write a function that takes as input a binary search tree and a value and removes the value from the tree. 
+The function should modify the original tree, not create a copy. 
+The tree must be updated to maintain its structure. 
+If possible, the left child should be moved to the position occupied by the removed value. 
+This may cause additional issues that need to be fixed. 
+The function should return the number of values removed (0 or 1). 
+Beware of memory leaks. 
+
+\part[5]
+Write a function that deallocates a binary search tree. 
+The function should take as input a pointer to a binary search tree and should deallocate the tree and all nodes contained within it. 
+\end{parts}
+
+\question[5]
+\textbf{I/O.}
+Write a main function that prints out copies of user input. 
+You should ask the user for a string and how many copies of it they want made. 
+Then, you should print out that number of copies of that string on separate lines. 
+However, if your main function is passed the \texttt{-r} flag when it is executed, it should print out each copy of the user input in reverse character order. 
+For example, giving the function \texttt{"Hello"} and \texttt{2} with the \texttt{-r} flag would result in:
+\begin{verbatim}
+olleh
+olleh
+\end{verbatim}
+Your function should only respond to the \texttt{-r} flag, but it should accept it with any other arguments. 
+Those other arguments should be ignored. 
+
+\question[10]
+\textbf{Writeup.}
+In addition to your code, you should submit a brief (~1-2 pages) writeup that describes the state of your code. 
+You should discuss what is working, what is not, and any known errors. 
+In this discussion, you should reference the tests you did and how they support your claims. 
+You will need to provide a brief description of your tests for you to reference. 
+Your writeup should be in a separate .txt or .pdf file. 
+
+\end{questions}
+
+\end{document}

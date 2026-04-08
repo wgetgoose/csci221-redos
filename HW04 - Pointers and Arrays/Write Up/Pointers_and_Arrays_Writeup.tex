@@ -1,0 +1,42 @@
+\documentclass[answers]{exam}
+\usepackage{graphicx} % Required for inserting images
+% math fonts, symbols, etc.
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{HW04: Pointers and Arrays}
+\author{Carson Ferreira}
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{questions}
+   \question BST
+   \begin{solution}
+      I've vaguely tested my BST function to success. As I ran my test functions
+      (located in the \verb|bst_test.c| file), I fixed minor indexing
+      issues and problems with edge cases, such as calling the add/remove
+      on a tree without a specified root. Below are the tests I ran:
+      \begin{enumerate}
+         \item Test initialization of tree with \verb|add_node|
+         \item Test removing the root node
+         \item Test proper distribution of values on left/right sides based on comparison
+         \item Test that removal of node keeps children and structure intact
+         \item Test removal of a node that has left AND right children
+         \item Test deallocation using in-function debug print statements (see \verb|bst.c|)
+      \end{enumerate} 
+      While I don't feel I have covered every case (inputting a duplicate value, for example),
+      I am running out of time to submit the assignment.
+   \end{solution}
+   \question IO
+   \begin{solution}
+      I tested the \verb|echo_chamber| function both with and without the "-r" flag.
+      I'm not super proud of the code (it's a little janky"), but testing with multiple
+      different strings with and without reversal works. One thing that does not work is
+      that the function outputs an extra "newline" (\verb|\n|) at the end of printing all
+      copies. I know how to fix this, but once again am running out of time.
+   \end{solution}
+\end{questions}
+
+\end{document}
